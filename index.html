@@ -229,8 +229,8 @@
     }
 
     .option {
-      height: 90px;
-      width: 250px;
+      height: 50px;
+      width: 350px;
       margin: 10px;
       padding: 10px;
       border: 1px solid #ddd;
@@ -247,6 +247,7 @@
       display: block;
       width: 2px;
       height: 250px;
+      padding: 10px;
       border-radius: 5px;
       margin-bottom: 10px;
     }
@@ -315,7 +316,7 @@
           </div>
           <div class="input-box">
             <span id="l3" class="details">Select Date</span><br />
-            <input type="date" name="data[Date]" placeholder="Date" id="l3" required />
+            <input type="date" name="data[Date]" placeholder="Date" id="l3" autocomplete="off" required />
           </div>
           <div class="input-box">
             <span class="details">Select Shift</span><br />
@@ -349,162 +350,129 @@
 
   <script>
 
-const quizData = [
-  {
-    question:
-      "<img src='banjo/headcrack.png' style='height: 200px' '></img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/headcrack.png' style='height: 200px' '></img>",
-    value: "q1",
-    options: [
-      "Head Burr",
-      "Head Dent Mark",
-      "Head Pit Mark",
-      "Head Crack",
-    ],
-    answer: "Head Crack",
-  },
-  {
-    question:
-      "<img src='banjo/shankpitmark.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/shankpitmark.png' style='height: 200px' '> </img>",
-    value: "q2",
-    options: [
-      "Shank Damage",
-      "Shank Pit Mark",
-      "Poor Finish",
-      "Shank Line Mark",
-    ],
-    answer: "Shank Pit Mark",
-  },
-  {
-    question:
-      "<img src='banjo/headdentmark.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/headdentmark.png' style='height: 200px' '> </img>",
-    value: "q3",
-    options: [
-      "Head Crack",
-      "Head Damage",
-      "Head Pit Mark",
-      "Head Dent Mark",
-    ],
-    answer: "Head Dent Mark",
-  },
-  {
-    question:
-      "<img src='banjo/linemark.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/linemark.png' style='height: 200px' '> </img>",
-    value: "q4",
-    options: [
-      "Shank Damage",
-      "Shank Dent Mark",
-      "Shank Line Mark",
-      "Head Dent Mark",
-    ],
-    answer: "Shank Line Mark",
-  },
-  {
-    question:
-      "<img src='banjo/pitmark.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/pitmark.png' style='height: 200px' '> </img>",
-    value: "q5",
-    options: [
-      "Head Chamber Uneven",
-      "Head Burr",
-      "Head Damage",
-      "Head Pit Mark",
-    ],
-    answer: "Head Pit Mark",
-  },
-  {
-    question:
-      "<img src='banjo/shankdamage.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect  <br> दोष का चयन करें </h2> <img src='banjo/shankdamage.png' style='height: 200px' '> </img>",
-    value: "q6",
-    options: [
-      "Poor Finish",
-      "Shank Dent Mark",
-      "Head Crack",
-      "Shank Damage",
-    ],
-    answer: "Shank Damage",
-  },
-  {
-    question:
-      "<img src='banjo/shankdamage1.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/shankdamage1.png' style='height: 200px' '> </img>",
-    value: "q7",
-    options: [
-      "Poor Finish",
-      "Shank Dent Mark",
-      "Head Crack",
-      "Shank Damage",
-    ],
-    answer: "Shank Damage",
-  },
-  {
-    question:
-      "<img src='banjo/acrossflatunderfill.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/acrossflatunderfill.png' style='height: 200px' '> </img>",
-    value: "q8",
-    options: [
-      "Across Flat Under Fill",
-      "Head Dent Mark",
-      "Poor Finish",
-      "Improper Finish",
-    ],
-    answer: "Across Flat Under Fill",
-  },
-  {
-    question:
-      "<img src='banjo/acrossflatunderfill1.png' style='height: 200px' '> </img>",
-    //"<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/acrossflatunderfill1.png' style='height: 200px' '> </img>",
-    value: "q9",
-    options: [
-      "Improper Finish",
-      "Head Crack",
-      "Poor Finish",
-      "Across Flat Under Fill",
-    ],
-    answer: "Across Flat Under Fill",
-  },
-  {
-    question:
-      "<img src='banjo/headdentmark2.png' style='height: 200px' '> </img>",
-    //`<h2 style = 'text-align: center'>Select the defect <br> दोष का चयन करें </h2> <img src='banjo/headdentmark2.png' style='height: 200px' '> </img>`,
-    value: "q10",
-    options: [
-      "Head Burr",
-      "Head Pit Mark",
-      "Head Damage",
-      "Head Dent Mark",
-    ],
-    answer: "Head Dent Mark",
-  },
-  /*
-{
-  question: "<img src='groupedImages/pointingdamage.jpg' style='height: 200px' '> </img>",
-  options: ['Bearing Face Convex', 'Bearing Face Underfill', 'Pointing Damage', 'White Patches'],
-  answer: 'Pointing Damage',
-},
-{
-  question: "<img src='groupedImages/poorfinish.jpg' style='height: 200px' '> </img>",
-  options: ['Poor Finish', 'Poor MEC Coating', 'Thread Damage', 'Shank Damage'],
-  answer: 'Poor Finish',
-},
-{
-  question: "<img src='groupedImages/poorfinish1.jpg' style='height: 200px' '> </img>",
-  options: ['Shank Damage', 'Poor Finish', 'Thread Damage', 'Poor MEC Coating'],
-  answer: 'Poor Finish',
-},
-{
-  question: "<img src='groupedImages/poormeccoating.jpg' style='height: 200px' '> </img>",
-  options: ['Poor Finish', 'Dent Mark', 'Improper MEC Coating', 'Poor MEC Coating'],
-  answer: 'Poor MEC Coating',
-},
+    const quizData = [
+      {
+        question:
+          "<img src='banjo/headcrack.png' style='height: 200px; padding: 100px;' '></img>",
+        value: "q1",
+        options: [
+          "Head Burr",
+          "Head Dent Mark",
+          "Head Pit Mark",
+          "Head Crack",
+        ],
+        answer: "Head Crack",
+      },
+      {
+        question:
+          "<img src='banjo/shankpitmark.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q2",
+        options: [
+          "Shank Damage",
+          "Shank Pit Mark",
+          "Poor Finish",
+          "Shank Line Mark",
+        ],
+        answer: "Shank Pit Mark",
+      },
+      {
+        question:
+          "<img src='banjo/headdentmark.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q3",
+        options: [
+          "Head Crack",
+          "Head Damage",
+          "Head Pit Mark",
+          "Head Dent Mark",
+        ],
+        answer: "Head Dent Mark",
+      },
+      {
+        question:
+          "<img src='banjo/linemark.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q4",
+        options: [
+          "Shank Damage",
+          "Shank Dent Mark",
+          "Shank Line Mark",
+          "Head Dent Mark",
+        ],
+        answer: "Shank Line Mark",
+      },
+      {
+        question:
+          "<img src='banjo/pitmark.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q5",
+        options: [
+          "Head Chamber Uneven",
+          "Head Burr",
+          "Head Damage",
+          "Head Pit Mark",
+        ],
+        answer: "Head Pit Mark",
+      },
+      {
+        question:
+          "<img src='banjo/shankdamage.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q6",
+        options: [
+          "Poor Finish",
+          "Shank Dent Mark",
+          "Head Crack",
+          "Shank Damage",
+        ],
+        answer: "Shank Damage",
+      },
+      {
+        question:
+          "<img src='banjo/shankdamage1.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q7",
+        options: [
+          "Poor Finish",
+          "Shank Dent Mark",
+          "Head Crack",
+          "Shank Damage",
+        ],
+        answer: "Shank Damage",
+      },
+      {
+        question:
+          "<img src='banjo/acrossflatunderfill.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q8",
+        options: [
+          "Across Flat Under Fill",
+          "Head Dent Mark",
+          "Poor Finish",
+          "Improper Finish",
+        ],
+        answer: "Across Flat Under Fill",
+      },
+      {
+        question:
+          "<img src='banjo/acrossflatunderfill1.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q9",
+        options: [
+          "Improper Finish",
+          "Head Crack",
+          "Poor Finish",
+          "Across Flat Under Fill",
+        ],
+        answer: "Across Flat Under Fill",
+      },
+      {
+        question:
+          "<img src='banjo/headdentmark2.png' style='height: 200px; padding: 100px;' '> </img>",
+        value: "q10",
+        options: [
+          "Head Burr",
+          "Head Pit Mark",
+          "Head Damage",
+          "Head Dent Mark",
+        ],
+        answer: "Head Dent Mark",
+      },
 
-
-*/
-];
+    ];
 
   </script>
 
@@ -524,39 +492,7 @@ const quizData = [
     });
   </script>
 
-  <script>
-      function testshow() {
-        const name = document.getElementById("l1").value;
-        const id = document.getElementById("l2").value;
-        const date = document.getElementById("l3").date;
-        const shift = document.getElementById("l4").value;
-        const supervisor = document.getElementById("l5").value;
-        const uniqueID = document.getElementById("uniqueID").value;
 
-        if (
-          name == "" ||
-          id == "" ||
-          date == "" ||
-          shift == "" ||
-          supervisor == "" ||
-          uniqueID == ""
-        ) {
-          alert("Enter All The Details");
-        } else if (
-          name != "" ||
-          id != "" ||
-          date != "" ||
-          shift != "" ||
-          supervisor != "" ||
-          uniqueID != ""
-        ) {
-    function testshow() {
-      document.getElementById("show").style.display = "inline-block";
-      document.getElementById("details").style.display = "none";
-    }
-  }
-      }
-    </script>
 
   <div class="container" id="show" style="display: none">
     <h1 id="h">Assesment</h1>
@@ -582,21 +518,21 @@ const quizData = [
     uniqueIDTextBox.value = generateUniqueID();
 
     // Add click event to the copy button
-    const copyButton = document.getElementById("copyButton");
-    copyButton.addEventListener("click", function () {
-      // Select the text in the text box
-      uniqueIDTextBox.select();
-      uniqueIDTextBox.setSelectionRange(0, 99999); // For mobile devices
+    //const copyButton = document.getElementById("copyButton");
+    //copyButton.addEventListener("click", function () {
+    // Select the text in the text box
+    // uniqueIDTextBox.select();
+    //uniqueIDTextBox.setSelectionRange(0, 99999); // For mobile devices
 
-      // Copy the selected text to the clipboard
-      document.execCommand("copy");
+    // Copy the selected text to the clipboard
+    // document.execCommand("copy");
 
-      // Deselect the text
-      window.getSelection().removeAllRanges();
+    // Deselect the text
+    // window.getSelection().removeAllRanges();
 
-      // Optionally, provide some visual feedback to the user
-      alert("Unique ID copied to clipboard!");
-    });
+    // Optionally, provide some visual feedback to the user
+    // alert("Unique ID copied to clipboard!");
+    // });
 
     /* Disable the back button
     history.pushState(null, null, location.href);
@@ -698,15 +634,37 @@ const quizData = [
         }
       }
     }
+
+    
+
     // Function For Displaying Result
     function displayResult() {
+
+      let remark = null;
+      let remarkColor = null;
+
+      // condition check for player remark and remark color
+      if (score <= 3) {
+        remark = "Bad Grades, Keep Practicing.";
+        remarkColor = "red";
+      } else if (score >= 4 && score < 7) {
+        remark = "Average Grades, You can do better.";
+        remarkColor = "orange";
+      } else if (score >= 7) {
+        remark = "Excellent, Keep the good work going.";
+        remarkColor = "green";
+      }
+      const playerGrade = (score / 10) * 100;
+
+
       quizContainer.style.display = "none";
       submitButton.style.display = "none";
       retryButton.style.display = "inline-block";
       showAnswerButton.style.display = "inline-block";
-      resultContainer.innerHTML = `
-        <p>Operator Name: ${name}</p>
-        You scored ${score} out of ${quizData.length} ! <br>`;
+      resultContainer.innerHTML = ` You scored ${score} out of ${quizData.length} ! <br>
+                                    ${remark} ${remarkColor} <br>
+                                    ${playerGrade}
+      `;
     }
 
     function retryQuiz() {
@@ -742,12 +700,42 @@ const quizData = [
         });
     }
 
+    function testshow() {
+      const name = document.getElementById("l1").value;
+      const id = document.getElementById("l2").value;
+      const date = document.getElementById("l3").value;
+      const shift = document.getElementById("l4").value;
+      const supervisor = document.getElementById("l5").value;
+      const uniqueID = document.getElementById("uniqueID").value;
+
+      if (
+        name == "" ||
+        id == "" ||
+        date == "" ||
+        shift == "" ||
+        supervisor == "" ||
+        uniqueID == ""
+      ) {
+        alert("Enter All The Details");
+      } else if (
+        name != "" ||
+        id != "" ||
+        date != "" ||
+        shift != "" ||
+        supervisor != "" ||
+        uniqueID != ""
+      ) {
+        document.getElementById("show").style.display = "inline-block";
+        document.getElementById("details").style.display = "none";
+      }
+    }
+
 
     // Function for storing data in the Spread Sheet
     function showAnswer() {
       const name = document.getElementById("l1").value;
       const id = document.getElementById("l2").value;
-      const date = document.getElementById("l3").date;
+      const date = document.getElementById("l3").value;
       const shift = document.getElementById("l4").value;
       const supervisor = document.getElementById("l5").value;
       const uniqueID = document.getElementById("uniqueID").value;
@@ -839,7 +827,7 @@ const quizData = [
           padding: 10px;
           border: 1px solid #ddd;
           border-radius: 5px;
-          transition: background-color 0.3s ease;" type="date" name="data[Date]" value="${date}" readonly /> <br>
+          transition: background-color 0.3s ease;" type="text" name="data[Date]" value="${date}" readonly /> <br>
         <label style="margin: 10px;
           padding: 10px;
           border: 1px solid #ddd;
